@@ -3,6 +3,7 @@
 .container {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: hsl(45, 6%, 87%);
 }
 
 .img {
@@ -91,6 +92,7 @@
   border-bottom: 1px solid;
   outline-color: transparent;
   padding-bottom: 0.3em;
+  background-color: hsl(45, 6%, 87%);
 }
 
 .input[type="text"]:focus-visible {
