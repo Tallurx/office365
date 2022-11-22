@@ -17,27 +17,27 @@ export default function Password() {
         <link
           rel="apple-touch-icon-precomposed"
           sizes="114x114"
-          href="assets/favicomatic/apple-touch-icon-114x114.png"
+          href="/assets/favicomatic/apple-touch-icon-114x114.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="72x72"
-          href="assets/favicomatic/apple-touch-icon-72x72.png"
+          href="/assets/favicomatic/apple-touch-icon-72x72.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="144x144"
-          href="assets/favicomatic/apple-touch-icon-144x144.png"
+          href="/assets/favicomatic/apple-touch-icon-144x144.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="60x60"
-          href="assets/favicomatic/apple-touch-icon-60x60.png"
+          href="/assets/favicomatic/apple-touch-icon-60x60.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="120x120"
-          href="assets/favicomatic/apple-touch-icon-120x120.png"
+          href="/assets/favicomatic/apple-touch-icon-120x120.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
@@ -47,36 +47,36 @@ export default function Password() {
         <link
           rel="apple-touch-icon-precomposed"
           sizes="152x152"
-          href="assets/favicomatic/apple-touch-icon-152x152.png"
+          href="/assets/favicomatic/apple-touch-icon-152x152.png"
         />
         <link
           rel="icon"
           type="image/png"
-          href="assets/favicomatic/favicon-196x196.png"
+          href="/assets/favicomatic/favicon-196x196.png"
           sizes="196x196"
         />
         <link
           rel="icon"
           type="image/png"
-          href="assets/favicomatic/favicon-96x96.png"
+          href="/assets/favicomatic/favicon-96x96.png"
           sizes="96x96"
         />
         <link
           rel="icon"
           type="image/png"
-          href="assets/favicomatic/favicon-32x32.png"
+          href="/assets/favicomatic/favicon-32x32.png"
           sizes="32x32"
         />
         <link
           rel="icon"
           type="image/png"
-          href="assets/favicomatic/favicon-16x16.png"
+          href="/assets/favicomatic/favicon-16x16.png"
           sizes="16x16"
         />
         <link
           rel="icon"
           type="image/png"
-          href="assets/favicomatic/favicon-128.png"
+          href="/assets/favicomatic/favicon-128.png"
           sizes="128x128"
         />
         <meta name="application-name" content="&nbsp;" />
