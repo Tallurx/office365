@@ -106,16 +106,16 @@ export default function Home() {
       </Head>
 
       <main className={`${styles.main} ${styles.flow} `}>
-        <h1 className={styles.h1}>Outlook</h1>
+        {/* <h1 className={styles.h1}>Outlook</h1> */}
         <img
           src="/assets/logo.png"
           alt=""
           aria-hidden="true"
           className={styles.img}
         />
-        <h2 className={styles.h2}>Sign in</h2>
-        <p className={styles.p}>to continue to Outlook</p>
-        <p className={styles.p}>
+        <h2 className={styles.main__h1}>Sign in</h2>
+        <p className={styles.main__p1}>to continue to Outlook</p>
+        <p className={styles.main__p2}>
           Because you're accessing sensitive info, you need to verify your
           account
         </p>
